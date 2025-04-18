@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useStudentContext } from "../context/StudentContext";
 
-const StudentForm = ({ onAdd }) => {
+const StudentForm = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     age: "",
   });
+
+  const { addStudent } = useStudentContext();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,7 +17,7 @@ const StudentForm = ({ onAdd }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.firstName || !formData.lastName || !formData.age) return;
-    onAdd(formData);
+    addStudent(formData);
     setFormData({ firstName: "", lastName: "", age: "" });
   };
 

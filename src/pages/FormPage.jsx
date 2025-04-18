@@ -1,17 +1,7 @@
-import { useState } from "react";
 import StudentForm from "../components/StudentForm";
 import StudentsTable from "../components/StudentsTable";
 
 const FormPage = () => {
-  const [students, setStudents] = useState([
-    { firstName: "John", lastName: "Doe", age: 21 },
-    { firstName: "Jane", lastName: "Smith", age: 22 },
-  ]);
-
-  const handleAddStudent = (student) => {
-    setStudents([...students, student]);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-tr from-gray-100 to-white p-6">
       <h1 className="text-4xl font-bold text-center text-blue-700 mb-10">
@@ -23,14 +13,14 @@ const FormPage = () => {
           <h2 className="text-2xl font-semibold mb-6 text-gray-700">
             Add New Student
           </h2>
-          <StudentForm onAdd={handleAddStudent} />
+          <StudentForm />
         </div>
 
         <div className="bg-white shadow-xl rounded-xl p-8">
           <h2 className="text-2xl font-semibold mb-6 text-gray-700">
             Student List
           </h2>
-          <StudentsTable students={students} />
+          <StudentsTable />
         </div>
       </div>
     </div>
